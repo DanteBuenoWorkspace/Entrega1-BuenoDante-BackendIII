@@ -15,7 +15,7 @@ El repositorio incluye:
 - .dockerignore
 
 ## Imagen en Dockerhub
-Link: 
+Link: https://hub.docker.com/r/dantebueno/entrega-n1-bueno-dante
 
 ## Notas
 - La imagen se construirá y subirá a Dockerhub cuando se ejecute el build en un entorno con Docker disponible.
