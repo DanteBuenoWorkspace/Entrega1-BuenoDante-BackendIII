@@ -1,15 +1,19 @@
-const mongoose = require('mongoose');
-
-const MONGO_URL = process.env.MONGO_URL || "mongodb+srv://dantebueno155_db_user:coder123@cluster0.ltuujro.mongodb.net/?appName=Cluster0";
+const mongoose = require("mongoose");
 
 const connectDB = async () => {
-    try {
-        await mongoose.connect(MONGO_URL);
-        console.log("Database connected");
-    } catch (error) {
-        console.log(`MongoDB connection error: ${error}`)
-        process.exit(1);
-    }
+  const MONGO_URL = process.env.MONGO_URL;
+
+  if (!MONGO_URL) {
+    throw new Error("Falta MONGO_URL en .env");
+  }
+
+  try {
+    await mongoose.connect(MONGO_URL);
+    console.log("✅ MongoDB connected");
+  } catch (err) {
+    console.error("❌ Error connecting to MongoDB:", err.message);
+    throw err;
+  }
 };
 
 module.exports = connectDB;
